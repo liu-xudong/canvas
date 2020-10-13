@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Canvas</title>
+		<style>
+			body{
+				text-align: center;
+				padding-top: 20px;
+			}
+			canvas{
+				box-shadow: 0 0 10px #333;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body onload="draw()">
+		<canvas id="canvas" width="800" height="600">
+			
+		</canvas>
+		
+		<script type="text/javascript">
+			function draw() {
+				let canvas = document.getElementById('canvas');
+				
+				if(canvas.getContext){
+					// 说明支持当前浏览器
+					let ctx = canvas.getContext('2d')
+					
+					/*
+						线性渐变
+						参数1： 起点x1
+						参数2： 起点y1
+						参数3： 终点x2
+						参数4： 终点y2
+					*/
+				   
+				   let lingrad = ctx.createLinearGradient(0,0,0,150)
+				   
+				   /*
+						参数1： 必须是0.0 ~ 1.0之间的数值，数值表示颜色所在的相对位置
+						参数2： 颜色，white #fff #ffffff rgb(255,255,255)
+				   */
+				   lingrad.addColorStop(0,'#cc6677')
+				   lingrad.addColorStop(0.5,'#fff')
+				   lingrad.addColorStop(0.5,'#c6c776')
+				   ctx.fillStyle = lingrad
+				   ctx.fillRect(10,10,150,150)
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Canvas</title>
+		<style>
+			body{
+				text-align: center;
+				padding-top: 20px;
+			}
+			canvas{
+				box-shadow: 0 0 10px #333;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body onload="draw()">
+		<canvas id="canvas" width="800" height="600">
+			
+		</canvas>
+		
+		<script type="text/javascript">
+			function draw() {
+				let canvas = document.getElementById('canvas');
+				
+				if(canvas.getContext){
+					// 说明支持当前浏览器
+					let ctx = canvas.getContext('2d')
+					
+					/*
+						圆的组成：圆心(x,y)半径 开始角度 结束角度 顺时针/逆时针
+					*/
+					
+				 //    ctx.strokeStyle = "orange"
+					// ctx.lineWidth = 10
+					
+					// 画圆
+					// ctx.arc(x,y,radius,startAngle,endAngle,anticlockwise)
+					// ctx.arc(400,300,150,0,Math.PI,true)
+					// ctx.arc(400,300,150,0,Math.PI/2)
+					// ctx.arc(400,300,150,0,Math.PI * 2)
+					// ctx.stroke()
+					
+					// for(let i = 0;i < 4; i++){
+					// 	for(let j = 0;j < 3;j++){
+					// 		ctx.beginPath()
+					// 		let x = 25 + j * 50
+					// 		let y = 25 + i * 50
+					// 		let radius = 20
+					// 		let startAngle = 0
+					// 		let endAngle = Math.PI + (Math.PI * j) / 2
+							
+					// 		let anticlockwise = (i % 2) == 0 ? false : true
+							
+					// 		ctx.arc(x,y,radius,startAngle,endAngle,anticlockwise)
+							
+					// 		if(i < 2){
+					// 			ctx.stroke()
+					// 		}else{
+					// 			ctx.fill()
+					// 		}
+ 				// 		}
+					// }
+					
+					ctx.beginPath()
+					ctx.arc(75,75,50,0,Math.PI*2,true)
+					ctx.moveTo(110,75)
+					ctx.arc(75,75,35,0,Math.PI,false)
+					ctx.moveTo(65,65)
+					ctx.arc(60,65,5,0,Math.PI*2,true)
+					ctx.moveTo(95,65)
+					ctx.arc(90,65,5,0,Math.PI*2,true)
+					ctx.stroke()
+				}
+			}
+		</script>
+	</body>
+</html>
